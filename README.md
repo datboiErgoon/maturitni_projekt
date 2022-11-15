@@ -45,7 +45,9 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - 6.11 - Oficiální start vytváření kódu (vložení a linknutí modelů, aplikací)
 - 9.11 - Změna z Django CMS Quickstart na Django z důvodu neefektivnosti a uvědomění, že základní Django je lepší volba (vytvořen nový repozitář).
 - 10.11 - Vložení modulů a vytvoření kódu pro autentifikaci uživatele
-- 
+- 11.11 - Zhotovení navbaru
+- 14.11 - Vytvoření CSS kódu pro pozadí Log-In stránky
+- 15.11 - Log-In fórum
 - 
 #### Prosinec
 
