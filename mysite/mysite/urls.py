@@ -22,4 +22,4 @@ urlpatterns = [
     path('audio/', include('audio.urls')),
     path('', include('accounts.urls')),
     path('admin/', admin.site.urls),
-]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
