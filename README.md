@@ -48,7 +48,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - 11.11 - Zhotovení navbaru
 - 14.11 - Vytvoření CSS kódu pro pozadí Log-In stránky
 - 15.11 - Log-In fórum
-- 
+- 16.11 - Log-In dokončeno (následuje reset hesla, guest account a front-end loginu)
 #### Prosinec
 
 # Zdroje
@@ -63,6 +63,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 3. https://www.instagram.com/webdevlessons/
 4. https://css.gg/app
 5. https://www.instagram.com/p/Cg4M5pqvke5/
+6. https://youtu.be/1UvTNMH7zDo
 
 
 
