@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}"/>
 </head>
 <body>
+    <nav>
+    <a href="base.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="#">Blog</a>
+    <a href="https://github.com/datboiErgoon?tab=repositories">Portfolio</a>
+    <a href="account.html">Account</a>
+    <div class="animation start-home"></div>
+</nav>
 
 </body>
 </html>

@@ -2,31 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign-in</title>
+    <title>Title</title>
+                  {% load static %}
+    <link rel="stylesheet" href="{% static 'css/type.css' %}"/>
 </head>
 <body>
+        <p class="line anim-typewriter">Welcome to Fantso, my maturita project website. Please, log-in or register to continue.</p>
 
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-        <strong>Message:</strong>{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    {% endfor %}
-    <h3>welcome to</h3>
+        <div class="btn fade">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Log-in" onclick="location.href='/signin'">
+        </div>
 
-    {% if user.is_authenticated %}
-    <h3>Hello {{ username }}</h3>
-    <h4>You're successfully logged in</h4>
-      <button type="submit"><a href="/signout">signout</a></button>
-    {% else %}
-    <button type="submit"><a href="/signup">signup</a></button>
-    <button type="submit"><a href="/signin">signin</a></button>
-    {% endif %}
+        <div class="btn2 fade">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Register" onclick="location.href='/signup'">
+        </div>
 
-<script src="" async defer></script>
+
 </body>
 </html>

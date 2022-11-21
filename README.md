@@ -1,4 +1,4 @@
-# OME (Online Music Experience)
+# FANTSO
 
 ## Autor projektu: 
 - **Ondřej Repko**
@@ -26,8 +26,8 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - Django
 - Python
 - Docker Desktop
-- HTML, CSS, JavaScript, Bootstrap 5 / Tailwind CSS
-- Různé JS knihovny
+- HTML, CSS, JavaScript, Bootstrap 5 
+- Různé JS a Python knihovny
 
 ## Časový harmonogram a postup
 
@@ -49,6 +49,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - 14.11 - Vytvoření CSS kódu pro pozadí Log-In stránky
 - 15.11 - Log-In fórum
 - 16.11 - Log-In dokončeno (následuje reset hesla, guest account a front-end loginu)
+- 21.11 - Frontend indexu a loginu (reset hesla nelze a guest account je zbytečný), uživatel se nyní může přihlásit a zobrazit si base.html
 #### Prosinec
 
 # Zdroje
@@ -64,6 +65,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 4. https://css.gg/app
 5. https://www.instagram.com/p/Cg4M5pqvke5/
 6. https://youtu.be/1UvTNMH7zDo
+7. https://www.w3schools.com
 
 
 

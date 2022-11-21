@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}"/>
-</head>
-<body>
-<nav>
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav>
     <a href="#">Home</a>
     <a href="#">About</a>
     <a href="#">Blog</a>
@@ -14,5 +9,5 @@
     <a href="#">Contact</a>
     <div class="animation start-home"></div>
 </nav>
-</body>
-</html>
+
+{% endblock content %}

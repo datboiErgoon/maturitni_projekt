@@ -24,7 +24,7 @@ def signup(request):
             messages.error(request, " Email is invalid or already taken.")
             return redirect('home')
 
-        if len(username)>16:
+        if len(username) > 16:
             messages.error(request, " Username must be under 16 characters.")
 
         if pass1 != pass2:
@@ -33,8 +33,6 @@ def signup(request):
         if not username.isalnum():
             messages.error(request, " Username cannot contain special characters.")
             return redirect('home')
-
-
 
         myuser = User.objects.create_user(username, email, pass1)
 
@@ -48,7 +46,6 @@ def signup(request):
 
 
 def signin(request):
-
     if request.method == 'POST':
         username = request.POST['username']
         pass1 = request.POST['pass1']
@@ -58,7 +55,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             username = user.username
-            return render(request, "accounts/index.html", {'username': username})
+            return render(request, "base.html", {'username': username})
 
         else:
             messages.error(request, " Incorrect username or password. Please try again.")
@@ -69,7 +66,7 @@ def signin(request):
 
 def signout(request):
     logout(request)
-    messages.success(request, " Logged Out Successfully.")
+    messages.success(request, "Logged Out Successfully.")
     return redirect('home')
 
 # Create your views here.
