@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal -->
-<html lang="en" dir="ltr">
+<html lang="en">
    <head>
       <meta charset="utf-8">
-      <title>Login and Registration Form in HTML | CodingNepal</title>
+      <title>Fantso Login Page</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
           {% load static %}
     <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
    </head>
    <body>
+
      {% if form.errors %}
     <p>Your username and password didn't match. Please try again.</p>
   {% endif %}
+
+       {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to access the main page.</p>
+    {% endif %}
+  {% endif %}
+
       <div class="wrapper">
          <div class="title-text">
             <div class="title login">
@@ -23,20 +33,24 @@
             <div class="form-inner">
                  <form class="login" method="post" action="{% url 'login' %}">
                    {% csrf_token %}
-                  <div class="field">
-                     <input type="text" placeholder="Enter Your username" id="{{ form.username }}">
+                     <div class="field">
+                     <input type="text"  placeholder="Enter your username" id={{ form.username }}</input>
                   </div>
                   <div class="field">
-                     <input type="password" placeholder="Enter Your password" id="{{ form.password}}">
+                     <input type="password"  placeholder="Enter your password" id={{ form.password }}</input>
                   </div>
-                      <br>
                   <div class="field btn">
                      <div class="btn-layer"></div>
                      <input type="submit" value="Login">
                   </div>
                       <input type="hidden" name="next" value="{{ next }}">
                   <div class="signup-link">
-                     Not a member? <a href="/signup">Signup now</a>
+                     Not a member? <a href="#">Signup now</a>
+                      <p>or</p>
+                      <a href="/audio">Continue as guest</a>
+                  </div>
+                     <div class="signup-link">
+                     <a href="{% url 'password_reset' %}">Lost password?</a>
                   </div>
                </form>
             </div>

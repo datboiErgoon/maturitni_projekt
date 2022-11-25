@@ -15,7 +15,7 @@ html,body{
 .wrapper{
   color: white;
   overflow: hidden;
-  max-width: 390px;
+  max-width: 490px;
   background: #272727;
   padding: 30px;
   border-radius: 5px;
@@ -76,9 +76,6 @@ input[type="radio"]{
 }
 form .field input:focus::placeholder{
   color: #b3b3b3;
-}
-.form-inner form .pass-link{
-  margin-top: 5px;
 }
 .form-inner form .signup-link{
   text-align: center;

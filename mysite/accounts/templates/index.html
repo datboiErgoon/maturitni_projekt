@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome to Fantso</title>
                   {% load static %}
     <link rel="stylesheet" href="{% static 'css/type.css' %}"/>
 </head>
@@ -11,12 +11,12 @@
 
         <div class="btn fade">
             <div class="btn-layer"></div>
-            <input type="submit" value="Log-in" onclick="location.href='/signin'">
+            <input type="submit" value="Log-in" onclick="location.href='{% url 'login' %}'">
         </div>
 
         <div class="btn2 fade">
             <div class="btn-layer"></div>
-            <input type="submit" value="Register" onclick="location.href='/signup'">
+            <input type="submit" value="Register" onclick="location.href='/register'">
         </div>
 
 
