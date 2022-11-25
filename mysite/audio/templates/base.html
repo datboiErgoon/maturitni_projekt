@@ -6,8 +6,12 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="icon" href="{% static 'img/icon.png' %}" type="image/gif" sizes="16x16">
 </head>
 <body>
+{% block header %}
+
+{% endblock header %}
     <nav>
     <a href="base.html">Home</a>
     <a href="about.html">About</a>
@@ -17,9 +21,6 @@
     <div class="animation start-home"></div>
 </nav>
   <ul class="sidebar-nav">
-
-    …
-
    {% if user.is_authenticated %}
      <li>User: {{ user.get_username }}</li>
      <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
