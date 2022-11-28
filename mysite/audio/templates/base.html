@@ -5,31 +5,39 @@
     <title>Fantso</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="icon" href="{% static 'img/icon.png' %}" type="image/gif" sizes="16x16">
+    <!-- CSS only -->
 </head>
 <body>
 {% block header %}
-
 {% endblock header %}
-    <nav>
-    <a href="base.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="#">Blog</a>
-    <a href="https://github.com/datboiErgoon?tab=repositories">Portfolio</a>
-    <a href="account.html">Account</a>
-    <div class="animation start-home"></div>
-</nav>
-  <ul class="sidebar-nav">
+<div class="header">
+    <ul class="log">
    {% if user.is_authenticated %}
-     <li>User: {{ user.get_username }}</li>
+     <li>{{ user.get_username }}</li>
      <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
    {% else %}
      <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
    {% endif %}
   </ul>
+    <a class="center" href="#"><img src="{% static 'img/FantsoOH (1).png' %}" alt="Home page" style="width:420px;height:220px;"></a>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><i>☰</i></label>
+    <div class="wrapper">
+      <ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="https://github.com/datboiErgoon/maturitni_projekt">Github Repository</a></li>
+<li><a href="https://www.sspu-opava.cz/cs/">School Website</a></li>
+<li><a href="https://github.com/datboiErgoon?tab=repositories">Portfolio</a></li>
+</ul>
+</div>
+</div>
 {% block content %}
 
 {% endblock content %}
+
 </body>
 </html>

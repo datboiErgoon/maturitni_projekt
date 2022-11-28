@@ -1,5 +1,32 @@
+*{
+font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
 .header {
   overflow: hidden;
-  background: #272727;
-  padding: 20px 10px;
+  background-color: #272727;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -80px;
+  width: 10%;
+}
+
+.log{
+  color: white;
+  font-weight: bold;
+  margin-right: 100px;
+  text-align: right;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.log a{
+  color: #fbb03b;
+  text-decoration: none
+}
+
+.log a:hover{
+  text-decoration: underline;
 }

@@ -1,71 +1,85 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-nav{
-    position: relative;
-    margin: 270px auto 0;
-    width: 590px;
-    height: 50px;
-    background: #34495e;
-    border-radius: 8px;
-    font-size: 0;
-    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+.wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  clip-path: circle(25px at calc(100% - 45px) 45px);
+  transition: all 0.3s ease-in-out;
+  font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  /*background: linear-gradient(-100deg, #d4145a, #fbb03b);*/
 }
-nav a{
-    font-size: 15px;
-    text-transform: uppercase;
-    color: white;
-    text-decoration: none;
-    line-height: 50px;
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-    text-align: center;
+#active:checked ~ .wrapper{
+  clip-path: circle(75%);
 }
-nav .animation{
-    position: absolute;
-    height: 100%;
-    top: 0;
-    z-index: 0;
-    background: #1abc9c;
-    border-radius: 8px;
-    transition: all .5s ease 0s;
+.menu-btn{
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+  background: #fff;
+}
+.wrapper ul{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+.wrapper ul li{
+  margin: 15px 0;
+}
+.wrapper ul li a{
+  color: none;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 30px;
+  color: #fff;
+  border-radius: 50px;
+  background: #000;
+  position: relative;
+  line-height: 50px;
+  transition: all 0.3s ease;
+}
+.wrapper ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+  background: linear-gradient(#d4145a, #fbb03b);
+  width: 104%;
+  height: 110%;
+  left: -2%;
+  border-radius: 50px;
+  transform: scaleY(0);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+.wrapper ul li a:hover:after{
+  transform: scaleY(1);
+}
+.wrapper ul li a:hover{
+  color: #fff;
+}
+input[type="checkbox"]{
+  display: none;
 }
 
-nav a:nth-child(1){
-    width: 100px;
-}
-nav .start-home, a:nth-child(1):hover~.animation{
-    width: 100px;
-    left: 0;
-}
-
-nav a:nth-child(2){
-    width: 110px;
-}
-nav a:nth-child(2):hover~.animation{
-    width: 110px;
-    left: 100px;
-}
-
-nav a:nth-child(3){
-    width: 100px;
-}
-nav a:nth-child(3):hover~.animation{
-    width: 100px;
-    left: 210px;
-}
-
-nav a:nth-child(4){
-    width: 160px;
-}
-nav a:nth-child(4):hover~.animation{
-    width: 160px;
-    left: 310px;
-}
-
-nav a:nth-child(5){
-    width: 120px;
-}
-nav a:nth-child(4):hover~.animation{
-    width: 120px;
-    left: 470px;
+@keyframes rotate {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
 }
