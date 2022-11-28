@@ -50,6 +50,9 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - 15.11 - Log-In fórum
 - 16.11 - Log-In dokončeno (následuje reset hesla, guest account a front-end loginu)
 - 21.11 - Frontend indexu a loginu (reset hesla nelze a guest account je zbytečný), uživatel se nyní může přihlásit a zobrazit si base.html
+- 25.11 - Přepracování loginu, bugfixy a routing + vytvoření loga
+- 29.11 - Přidání responzivního navbaru
+
 #### Prosinec
 
 # Zdroje
@@ -66,6 +69,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 5. https://www.instagram.com/p/Cg4M5pqvke5/
 6. https://youtu.be/1UvTNMH7zDo
 7. https://www.w3schools.com
+8. https://codepen.io/yuhomyan/pen/WNwGywp
 
 
 
