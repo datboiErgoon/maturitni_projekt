@@ -22,7 +22,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('audio/', include('audio.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', RedirectView.as_view(url='accounts/'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

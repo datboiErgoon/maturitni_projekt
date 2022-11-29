@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load widget_tweaks %}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign-in</title>
+           {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+       <link rel="icon" href="{% static 'img/icon.png' %}" type="image/gif" sizes="16x16">
+  </head>
+  <body>
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Login
+            </div>
+         </div>
+          <div class="form-container">
+              <div class="form-inner">
+<div class="row mb-3">
+    <div class="container">
+      <form method="post">
+        {% csrf_token %}
+            {% for hidden_field in form.hidden_fields %}
+              {{ hidden_field }}
+            {% endfor %}
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {% for error in form.non_field_errors %}
+                  {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% for field in form.visible_fields %}
+            <div class="form-group">
+                {{ field.label_tag }}
+
+                {% if form.is_bound %}
+                  {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                      <div class="invalid-feedback">
+                          {{ error }}
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                  {% endif %}
+                {% else %}
+                    <div class="field">
+                    {% render_field field class="form-control" %}
+                  </div>
+
+                {% endif %}
+
+                {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+            </div>
+            {% endfor %}
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Registration">
+                  </div>
+                      <input type="hidden" name="next" value="{{ next }}">
+      </form>
+    </div>
+</div>
+  </form>
+                        </div>
+         </div>
+       </div>
+  <script></script>
+  </body>
+      </html>
