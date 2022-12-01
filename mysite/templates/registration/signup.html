@@ -8,36 +8,36 @@
     <title>Sign-in</title>
            {% load static %}
     <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
-       <link rel="icon" href="{% static 'img/icon.png' %}" type="image/gif" sizes="16x16">
+       <link rel="icon" href="{% static 'img/testlogo.png' %}" type="image/gif" sizes="16x16">
   </head>
   <body>
-      <div class="wrapper">
-         <div class="title-text">
-            <div class="title login">
-               Login
-            </div>
-         </div>
-          <div class="form-container">
-              <div class="form-inner">
-<div class="row mb-3">
-    <div class="container">
-      <form method="post">
-        {% csrf_token %}
-            {% for hidden_field in form.hidden_fields %}
-              {{ hidden_field }}
-            {% endfor %}
-            {% if form.non_field_errors %}
+              {% if form.non_field_errors %}
             <div class="alert alert-danger" role="alert">
                 {% for error in form.non_field_errors %}
                   {{ error }}
                 {% endfor %}
             </div>
             {% endif %}
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Registration
+            </div>
+         </div>
+          <div class="form-container">
+              <div class="form-inner">
+      <form method="post">
+        {% csrf_token %}
 
+          {% for hidden_field in form.hidden_fields %}
+              {{ hidden_field }}
+            {% endfor %}
             {% for field in form.visible_fields %}
             <div class="form-group">
+            <div class="signup-link">
                 {{ field.label_tag }}
-
+            </div>
+            <div class="field">
                 {% if form.is_bound %}
                   {% if field.errors %}
                     {% render_field field class="form-control is-invalid" %}
@@ -53,6 +53,7 @@
                     <div class="field">
                     {% render_field field class="form-control" %}
                   </div>
+                    </div>
 
                 {% endif %}
 
@@ -67,10 +68,7 @@
                   </div>
                       <input type="hidden" name="next" value="{{ next }}">
       </form>
-    </div>
-</div>
-  </form>
-                        </div>
+              </div>
          </div>
        </div>
   <script></script>

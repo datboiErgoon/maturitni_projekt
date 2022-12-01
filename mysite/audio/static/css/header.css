@@ -1,6 +1,3 @@
-*{
-font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
-}
 .header {
   overflow: hidden;
   background-color: #272727;
@@ -9,16 +6,17 @@ font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -800px;
-  width: 10%;
+  margin-top: -80px;
+  width: 50%;
+  padding: 10px 10px;
 }
 
 .log{
   color: white;
   font-weight: bold;
   margin-right: 100px;
-  text-align: left;
-  margin-top: 20px;
+  text-align: right;
+  margin-top: 0px;
   list-style: none;
   padding: 20px 0px;
 }
