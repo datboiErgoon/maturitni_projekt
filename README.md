@@ -7,7 +7,8 @@
 - [Štěpán Krautwurst](https://github.com/stallion7)
 - [Tomáš Fryčka](https://github.com/kektoor)
 - [Jakub Heisig](https://github.com/ncplyn)
-- [Pavel Sixta]()
+- [Jan Slivka](https://github.com/HansS04)
+- [Sofja Klopcová]()
  
  ## Hudební webová stránka s použitím Django 
 Jakožto maturitní projekt jsem se rozhodl vytvořit web, přes který by si uživatel mohl importovat **vlastní MP3 soubory** a následně si hudbu přehrát. **Souborové ID3 Tagy by se přečetly a zobrazily na stránce** společně s funkcí přehrání a dalších několika podpůrných funkcí (Tlačítka Forward/Backward, Randomizer..). Dále by se na webové stránce dokázal uživatel přihlásit skrz **Log-in systém**.
@@ -26,7 +27,8 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - Django
 - Python
 - Docker Desktop
-- HTML, CSS, JavaScript, Bootstrap 5 
+- HTML, CSS, Bootstrap 5.1
+- Mutagen library
 - Různé JS a Python knihovny
 
 ## Časový harmonogram a postup
@@ -54,13 +56,16 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - 29.11 - Přidání responzivního navbaru
 
 #### Prosinec
+- 1.12 - Zasazení html stránek do bloků, bugfixy, zlepšení registrace, začátek backendu, bootstrap 
+
 
 # Zdroje
 ### Použité technologie a programy:
 1. https://www.python.org
 2. https://www.jetbrains.com/pycharm/
-3. https://tailwindcss.com/docs/installation
+3. https://getbootstrap.com/docs/5.1/getting-started/introduction/
 4. https://www.docker.com/products/docker-desktop/
+5. https://mutagen.readthedocs.io/en/latest/user/id3.html
 ### Tutoriály, inspirace:
 1. https://docs.djangoproject.com/en/4.1/intro/tutorial01/
 2. https://docs.djangoproject.com/en/4.1/intro/reusable-apps/
