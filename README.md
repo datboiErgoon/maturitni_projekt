@@ -57,7 +57,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 
 #### Prosinec
 - 1.12 - Zasazení html stránek do bloků, bugfixy, zlepšení registrace, začátek backendu, bootstrap 
-
+- 5.12 - Zjednodušení navbaru, přidání footeru
 
 # Zdroje
 ### Použité technologie a programy:
@@ -75,6 +75,8 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 6. https://youtu.be/1UvTNMH7zDo
 7. https://www.w3schools.com
 8. https://codepen.io/yuhomyan/pen/WNwGywp
+9. https://www.youtube.com/watch?v=qNifU_aQRio
+10. https://mdbootstrap.com/docs/standard/navigation/footer/
 
 
 

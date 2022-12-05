@@ -1,16 +1,3 @@
-.header {
-  overflow: hidden;
-  background-color: #272727;
-}
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -80px;
-  width: 50%;
-  padding: 10px 10px;
-}
-
 .log{
   color: white;
   font-weight: bold;

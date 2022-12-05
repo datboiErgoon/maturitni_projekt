@@ -2,33 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fantso</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="icon" href="{% static 'img/testlogo.png' %}" type="image/gif" sizes="16x16">
     <!-- CSS only -->
 </head>
 <body>
-{% block header %}
     {% block navbar %}
-    <div class="header">
-    {% include "page/header.html" %}
-    {% include "page/navbar.html" %}
-    </div>
+
+        {% include "page/navbar.html" %}
+
     {% endblock navbar %}
-{% endblock header %}
 
 {% block content %}
-
 {% endblock content %}
 
+ {% block footer %}
+
+        {% include "page/footer.html" %}
+
+    {% endblock %}
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+
+<script src="https://kit.fontawesome.com/2729980c29.js" crossorigin="anonymous"></script>
 </html>
