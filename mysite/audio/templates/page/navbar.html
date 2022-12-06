@@ -2,7 +2,7 @@
     <div class="container">
   {% load static %}
     <a class="navbar-brand mb-0 h1" href="#">
-        <img src="{% static 'img/test.png' %}" class="d-inline-block align-top" alt="Home page" width="300" height="90"></a>
+        <img src="{% static 'img/test.png' %}" class="d-inline-block align-top" alt="Home page" width="300" height="74"></a>
 
     <button type="button" data-bs-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
@@ -10,19 +10,19 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item active border-gradient border-gradient-red">
         <a class="nav-link active" href="#">About</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item border-gradient border-gradient-red">
         <a class="nav-link active" href="https://github.com/datboiErgoon?tab=repositories">Portfolio</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item border-gradient border-gradient-red border-gradient-right">
         <a class="nav-link active" href="https://www.sspu-opava.cz/cs/">School Website</a>
       </li>
     </ul>
 
   </div>
-        <ul class="log">
+        <ul class="log text-right">
    {% if user.is_authenticated %}
      <li>Username: {{ user.get_username }}</li>
      <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout?</a></li>

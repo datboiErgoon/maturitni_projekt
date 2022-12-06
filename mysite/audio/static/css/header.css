@@ -10,9 +10,24 @@
 
 .log a{
   color: #fbb03b;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .log a:hover{
   text-decoration: underline;
+  color: #d4145a;
+}
+
+.border-gradient {
+  padding: 0 1em;
+  border-left: 2px solid #fbb03b;
+  color: white;
+  font-weight: bold;
+  border-image-slice: 1;
+}
+.border-gradient-red {
+  border-image-source: linear-gradient(to top, #d4145a, #fbb03b);
+}
+.border-gradient-right {
+  border-right: 2px solid #fbb03b;
 }
