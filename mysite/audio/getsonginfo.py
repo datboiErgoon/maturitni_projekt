@@ -4,6 +4,7 @@ from mutagen.flac import FLAC
 from mutagen.mp3 import MP3
 from io import BytesIO
 
+
 def loadfile(path):
     try:
         audio = MP3(path)
@@ -19,12 +20,13 @@ def loadfile(path):
         except:
             print("Your song doesn't include lyrics.")
             info.append("Lyrics not found.")
-        return info
+        finally:
+            return info
+
 
     except:
         print("There has been an error importing the file selected. Please, make sure the file is correct.")
         return 0
-
 
 
 # audio2 = FLAC("exampleflac.flac")

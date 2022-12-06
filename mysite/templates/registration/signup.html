@@ -11,13 +11,7 @@
        <link rel="icon" href="{% static 'img/testlogo.png' %}" type="image/gif" sizes="16x16">
   </head>
   <body>
-              {% if form.non_field_errors %}
-            <div class="alert alert-danger" role="alert">
-                {% for error in form.non_field_errors %}
-                  {{ error }}
-                {% endfor %}
-            </div>
-            {% endif %}
+
       <div class="wrapper">
          <div class="title-text">
             <div class="title login">
@@ -43,7 +37,7 @@
                     {% render_field field class="form-control is-invalid" %}
                     {% for error in field.errors %}
                       <div class="invalid-feedback">
-                          {{ error }}
+                            {{ error }}
                       </div>
                     {% endfor %}
                   {% else %}
@@ -54,7 +48,6 @@
                     {% render_field field class="form-control" %}
                   </div>
                     </div>
-
                 {% endif %}
 
                 {% if field.help_text %}
@@ -67,6 +60,10 @@
                      <input type="submit" value="Registration">
                   </div>
                       <input type="hidden" name="next" value="{{ next }}">
+
+                     <div class="signup-link">
+                     <a href="{% url 'login' %}">Already registered?</a>
+                  </div>
       </form>
               </div>
          </div>

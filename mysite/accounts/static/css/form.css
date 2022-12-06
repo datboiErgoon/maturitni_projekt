@@ -123,7 +123,10 @@ form .btn input[type="submit"]{
   font-weight: 500;
   cursor: pointer;
 }
-
-.hej{
+.invalid-feedback{
+  color: red;
   background-color: red;
+}
+.btn-resize{
+font-size: 50px;
 }
