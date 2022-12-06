@@ -58,6 +58,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 #### Prosinec
 - 1.12 - Zasazení html stránek do bloků, bugfixy, zlepšení registrace, začátek backendu, bootstrap 
 - 5.12 - Zjednodušení navbaru, přidání footeru
+- 6.12 - Bugfixy, přidání gradientu do navbar linků
 
 # Zdroje
 ### Použité technologie a programy:
