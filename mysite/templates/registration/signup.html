@@ -35,6 +35,7 @@
                 {% if form.is_bound %}
                   {% if field.errors %}
                     {% render_field field class="form-control is-invalid" %}
+                      </div>
                     {% for error in field.errors %}
                       <div class="invalid-feedback">
                             {{ error }}
@@ -46,8 +47,10 @@
                 {% else %}
                     <div class="field">
                     {% render_field field class="form-control" %}
-                  </div>
+
                     </div>
+
+
                 {% endif %}
 
                 {% if field.help_text %}
