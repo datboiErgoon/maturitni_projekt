@@ -15,13 +15,14 @@ def index(request):
     }
     return render(request, 'base.html', context=context)
 
+
 def loadMP3(request):
     if request.method == 'POST':
         form = UploadMP3Form(request.POST)
         if form.is_valid():
             try:
                 song = Songs()
-                songinfo = loadfile(form)
+                songinfo = loadfile(form.songfile.path)
                 # song.title = songinfo['TIT2']
                 # song.artist = songinfo['TPE1']
                 # song.album = songinfo['TALB']
@@ -31,7 +32,8 @@ def loadMP3(request):
                 # song.year = songinfo['TDRC']
                 # song.runtime = songinfo.info.length
                 # song.lyrics = songinfo['"USLT::XXX"']
-                song.songfile = form
+                print(f'yess{songinfo[0]} {songinfo[1]} {songinfo[2]} {songinfo[3]} {songinfo[4]} {songinfo[5]} {songinfo[6]} {songinfo[7]} {songinfo[9]}')
+                song.songfile = form.songfile
                 song.title = songinfo[0]
                 song.artist = songinfo[1]
                 song.album = songinfo[2]
@@ -39,7 +41,8 @@ def loadMP3(request):
                 song.tracknumber = songinfo[4]
                 song.disc = songinfo[5]
                 song.date = songinfo[6]
-                song.runtime = songinfo[7]
+                # song.runtime = songinfo[7]
+                song.runtime = 15000
                 song.lyrics = songinfo[9]
                 song.save()
             except:
@@ -55,12 +58,10 @@ class SongListView(ListView):
         return Songs.objects.all()
 
 
-
 class SongDetailView(DetailView):
     model = Songs
     context_object_name = 'song_detail'
     template_name = 'player/detail.html'
-
 
 
 class SongCreate(CreateView):

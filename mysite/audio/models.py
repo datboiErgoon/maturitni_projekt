@@ -13,16 +13,13 @@ class Songs(models.Model):
     title = models.CharField(max_length=100, verbose_name='Name of the song', help_text='Enter the name of the song')
     artist = models.CharField(max_length=100, verbose_name='Name of the artist',
                               help_text='Enter the name of the artist')
-    tracktotal = models.IntegerField(verbose_name='Total number of tracks on the album',
-                                     help_text='Enter the total number of tracks on the album')
-    date = models.IntegerField(verbose_name='Year of the albums release',
-                               help_text='Enter the year of the albums release')
-    tracknumber = models.IntegerField(verbose_name='Track number', help_text='Enter the track number')
-    filetype = models.CharField(max_length=20, verbose_name='File type', help_text='Enter the file type')
-    runtime = models.IntegerField(verbose_name='Full length of the song',
-                                         help_text='Enter the full length of the song')
+    date = models.CharField(max_length=20, verbose_name='Year of the albums release',
+                            help_text='Enter the year of the albums release')
+    tracknumber = models.IntegerField(verbose_name='Track number', help_text='Enter the track number', null=True)
+    filetype = models.CharField(max_length=20, verbose_name='File type', help_text='Enter the file type', null=True)
+    runtime = models.IntegerField(verbose_name='Full length of the song', help_text='Enter the full length of the song', default=1000)
     genre = models.CharField(max_length=100, verbose_name='Genre', help_text='Enter the genre')
-    disc = models.IntegerField(verbose_name='Total number of discs', help_text='Enter the total number of discs')
+    disc = models.IntegerField(verbose_name='Total number of discs', help_text='Enter the total number of discs', default=1)
     lyrics = models.CharField(max_length=500, verbose_name='Lyrics', help_text='Enter the lyrics')
 
     class Meta:

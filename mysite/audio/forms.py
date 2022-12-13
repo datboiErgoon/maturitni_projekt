@@ -1,4 +1,8 @@
 from django import forms
+from .models import Songs
 
-class UploadMP3Form(forms.Form):
-    file = forms.FileField()
+
+class UploadMP3Form(forms.ModelForm):
+    class Meta:
+        model = Songs
+        fields = ['songfile']

@@ -62,6 +62,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - 1.12 - Zasazení html stránek do bloků, bugfixy, zlepšení registrace, začátek backendu, bootstrap 
 - 5.12 - Zjednodušení navbaru, přidání footeru
 - 6.12 - Bugfixy, přidání gradientu do navbar linků
+- 13.12 - Lépe zformátované README.md, výpis z importu 
 
 # Zdroje
 ### Použité technologie a programy:

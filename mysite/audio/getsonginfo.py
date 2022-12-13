@@ -8,7 +8,7 @@ from io import BytesIO
 def loadfile(path):
     try:
         audio = MP3(path)
-        info = [audio["TIT2"],audio["TPE1"],audio['TALB'],audio["TCON"],audio["TRCK"],audio["TPOS"],audio["TDRC"],
+        info = [audio["TIT2"],audio["TPE1"],audio['TALB'],int(audio["TCON"]),int(audio["TRCK"]),int(audio["TPOS"]),audio["TDRC"],
                 audio.info.length]
         try:
             info.append(audio.get('APIC:thumbnail').data)
