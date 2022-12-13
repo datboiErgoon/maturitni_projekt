@@ -1,4 +1,4 @@
-![Fantso Logo](/mysite/audio/static/img/logo.png)
+![Fantso Logo](/mysite/audio/static/img/logo.png | width=100)
 # FANTSO Music Website
 
 ## Autor projektu: 
