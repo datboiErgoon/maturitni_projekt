@@ -1,3 +1,4 @@
+![Fantso Logo](/mysite/audio/static/img/logo.png)
 # FANTSO Music Website
 
 ## Autor projektu: 
@@ -34,9 +35,9 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 ## Časový harmonogram a postup
 
 #### Září
-8.9 - Nalezení velice užitečných JS knihoven a funkcí, které v projektu využiji (colour palletes, příjemně vypadající animace, gradient background efekty)
-16.9 - Studování a plánování backendu 
-22.9 - Designování frontendu a vybírání správných barev/pozic
+- 8.9 - Nalezení velice užitečných JS knihoven a funkcí, které v projektu využiji _(colour palletes, příjemně vypadající animace, gradient background efekty)_
+- 16.9 - Studování a plánování backendu 
+- 22.9 - Designování frontendu a vybírání správných barev/pozic
 
 #### Říjen
 - 4.10 - Při pushování commitu do repozitáře se mi projekt celý vymazal a 4.10.2022 jsem musel začít od začátku
@@ -44,14 +45,14 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - 14.10 - Studování Djanga a Pythonu
 - 24.10 - Konzultace se spolužáky ohledně projektu
 #### Listopad
-- 6.11 - Oficiální start vytváření kódu (vložení a linknutí modelů, aplikací)
-- 9.11 - Změna z Django CMS Quickstart na Django z důvodu neefektivnosti a uvědomění, že základní Django je lepší volba (vytvořen nový repozitář).
+- 6.11 - Oficiální start vytváření kódu _(vložení a linknutí modelů, aplikací)_
+- 9.11 - Změna z Django CMS Quickstart na Django z důvodu neefektivnosti a uvědomění, že základní Django je lepší volba _(vytvořen nový repozitář)_
 - 10.11 - Vložení modulů a vytvoření kódu pro autentifikaci uživatele
 - 11.11 - Zhotovení navbaru
 - 14.11 - Vytvoření CSS kódu pro pozadí Log-In stránky
 - 15.11 - Log-In fórum
-- 16.11 - Log-In dokončeno (následuje reset hesla, guest account a front-end loginu)
-- 21.11 - Frontend indexu a loginu (reset hesla nelze a guest account je zbytečný), uživatel se nyní může přihlásit a zobrazit si base.html
+- 16.11 - Log-In dokončeno _(následuje reset hesla, guest account a front-end loginu)_
+- 21.11 - Frontend indexu a loginu _(reset hesla nelze a guest account je zbytečný)_, uživatel se nyní může přihlásit a zobrazit si _base.html_
 - 25.11 - Přepracování loginu, bugfixy a routing + vytvoření loga
 - 29.11 - Přidání responzivního navbaru
 
