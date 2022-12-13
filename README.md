@@ -1,6 +1,7 @@
-![Fantso Logo](/mysite/audio/static/img/logo.png | width=100)
-# FANTSO Music Website
-
+<p align="center">
+<img src="mysite/audio/static/img/logo.png" width="600" height="150">
+ </p>
+ 
 ## Autor projektu: 
 - **Ondřej Repko**
 
