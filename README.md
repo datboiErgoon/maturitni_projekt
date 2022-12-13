@@ -1,6 +1,7 @@
-<p align="center">
+<div align="center">
 <img src="mysite/audio/static/img/logo.png" width="600" height="150">
- </p>
+ </div>
+ <br>
  
 ## Autor projektu: 
 - **Ondřej Repko**
