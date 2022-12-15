@@ -47,6 +47,8 @@ def loadMP3(request):
                 song.save()
             except:
                 return redirect('song_list')
+        else:
+            print('Nevalidni')
 
 
 class SongListView(ListView):

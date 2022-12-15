@@ -46,16 +46,17 @@ body{
     border-right-color: transparent;
   }
 }
+
 .btn{
   height: 50px;
   width: 10%;
   border-radius: 5px;
   position: absolute;
-  bottom: 240px;
-  left: 550px;
+  bottom: 15%;
+  left: 32%;
   overflow: hidden;
-
 }
+
 .btn .btn-layer{
   height: 100%;
   width: 300%;
@@ -88,8 +89,8 @@ body{
   width: 10%;
   border-radius: 5px;
   position: absolute;
-  bottom: 240px;
-  left: 1100px;
+  bottom: 15%;
+  right: 32%;
   overflow: hidden;
 
 }
