@@ -1,76 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load widget_tweaks %}
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign-in</title>
+    <title>Sign-Up</title>
            {% load static %}
     <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
-       <link rel="icon" href="{% static 'img/testlogo.png' %}" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}"/>
+    <link rel="icon" href="{% static 'img/icon.png' %}" type="image/gif" sizes="16x16">
   </head>
   <body>
 
-      <div class="wrapper">
+  <div>
+      {% for message in messages %}
+          <h5 class="invalid-feedback">Error: {{message}}</h5>
+      {% endfor %}
+  </div>
+
+ <div class="wrapper">
          <div class="title-text">
             <div class="title login">
-               Registration
+               Sign-Up
             </div>
          </div>
-          <div class="form-container">
-              <div class="form-inner">
-      <form method="post">
-        {% csrf_token %}
-
-          {% for hidden_field in form.hidden_fields %}
-              {{ hidden_field }}
-            {% endfor %}
-            {% for field in form.visible_fields %}
-            <div class="form-group">
-            <div class="signup-link">
-                {{ field.label_tag }}
-            </div>
-            <div class="field">
-                {% if form.is_bound %}
-                  {% if field.errors %}
-                    {% render_field field class="form-control is-invalid" %}
-                      </div>
-                    {% for error in field.errors %}
-
-                            <span class="help-block">{{ error }}</span>
-
-                    {% endfor %}
-                  {% else %}
-                    {% render_field field class="form-control is-valid" %}
-                  {% endif %}
-                {% else %}
-                    <div class="field">
-                    {% render_field field class="form-control" %}
-
-                    </div>
-
-
-                {% endif %}
-
-                {% if field.help_text %}
-                <small class="form-text text-muted">{{ field.help_text }}</small>
-                {% endif %}
-            </div>
-            {% endfor %}
-                  <div class="field btn">
-                     <div class="btn-layer"></div>
-                     <input type="submit" value="Registration">
+         <div class="form-container">
+            <div class="form-inner">
+                 <form class="login" method="POST" action="">
+                   {% csrf_token %}
+                     <div class="field">
+                         <input type="text" name="username" placeholder="Username">
                   </div>
-                      <input type="hidden" name="next" value="{{ next }}">
-
-                     <div class="signup-link">
-                     <a href="{% url 'login' %}">Already registered?</a>
+                 <div class="field">
+                 <input type="email" name="email" placeholder="Email">
+                 </div>
+                 <div class="field">
+                 <input type="password" name="password" placeholder="Password">
+                 </div>
+                     <div class="field">
+                 <input type="password" name="password2" placeholder="Confirm Password">
+                 </div>
+                    <button type="submit" class="btn-grad"> Sign-Up </button>
+                  <div class="signup-link">
+                     Do you have an account? <a href="/signin">Sign-in Now</a>
                   </div>
-      </form>
-              </div>
+               </form>
+            </div>
          </div>
-       </div>
+      </div>
   <script></script>
   </body>
       </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Fantso</title>
+                  {% load static %}
+    <link rel="stylesheet" href="{% static 'css/type.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/button.css' %}"/>
+    <link rel="icon" href="{% static 'img/icon.png' %}" type="image/gif" sizes="16x16">
+</head>
+<body>
+        <p class="line anim-typewriter">Welcome to Fantso, my maturita project website. Please, log-in or register to continue.</p>
+
+
+            <div class="left">
+                <button type="submit" class="btn-grad fade" onclick="location.href='/signin'"> Sign-In </button>
+            </div>
+            <div class="right">
+            <button type="submit" class="btn-grad fade" onclick="location.href='/signup'"> Sign-Up </button>
+            </div>
+
+
+
+
+</body>
+</html>

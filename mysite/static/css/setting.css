@@ -1,0 +1,43 @@
+html, body{
+    background-color: #2b2b2b;
+}
+.colour{
+    color: #fbb03b;
+}
+a:hover{
+    color: #d4145a;!important;
+}
+
+.area{
+    background-color: #2A2A2A;
+    color: white;
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 80%;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #d4145a 0%, #fbb03b 50%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.5s;
+    background-size: 250% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 3px #272727 solid;
+}
+
+.btn-grad:hover {
+    background-position: 20% 80%;
+    color: #fff;
+    text-decoration: none;
+}
+

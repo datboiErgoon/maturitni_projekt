@@ -1,0 +1,53 @@
+html, body{
+    background-color: #2b2b2b;
+}
+
+.user-avatar {
+    border-radius: 10px;
+    border: 3px solid #fbb03b;
+    border-bottom-color: #d4145a;
+    border-left-color: #d4145a;
+    top: 80%;
+    position: absolute;
+}
+.top{
+    height: 40%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+.bio{
+    background-color: white;
+    position: absolute;
+    top: 75%;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #d4145a 0%, #fbb03b 50%);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.5s;
+    background-size: 250% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 3px #272727 solid;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-grad:hover {
+    background-position: 20% 80%;
+    color: #fff;
+    text-decoration: none;
+}
+
+.colour{
+    color: #fbb03b;
+}
+a:hover{
+    color: #d4145a;!important;
+}

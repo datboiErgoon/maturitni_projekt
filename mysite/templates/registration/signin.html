@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Sign-In</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+    <link rel="icon" href="{% static 'img/icon.png' %}" type="image/gif" sizes="16x16">
+   </head>
+   <body>
+
+     <div>
+      {% for message in messages %}
+          <h5 class="invalid-feedback">Error: {{message}}</h5>
+      {% endfor %}
+  </div>
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Sign-In
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="form-inner">
+                 <form class="login" method="POST" action="">
+                   {% csrf_token %}
+                     <div class="field">
+                     <input type="text" name="username" placeholder="Username">
+                  </div>
+                  <div class="field">
+                      <input type="password" name="password" placeholder="Password">
+                  </div>
+                    <button type="submit" class="btn-grad"> Sign-In </button>
+                  <div class="signup-link">
+                     Not a member? <a href="/signup">Signup now</a>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <script>
+      </script>
+   </body>
+</html>

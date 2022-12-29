@@ -1,0 +1,60 @@
+.log a{
+  color: #fbb03b;
+  text-decoration: none;
+  transition: color 0.35s;
+
+}
+
+.log a:hover{
+  text-decoration: none;
+  color: #d4145a;
+}
+.border-gradient {
+  padding: 0 1em;
+  border-left: 4px solid #fbb03b;
+  color: white;
+  font-weight: bold;
+  border-image-slice: 1;
+}
+.border-gradient-red {
+  border-image-source: linear-gradient(to top, #d4145a, #fbb03b);
+  transition: border-image-source 0.35s, font-size 0.35s, border-left 0.35s;
+}
+.border-gradient-red:hover, .border-gradient-red:focus {
+  border-image-source: linear-gradient(to top, #fbb03b, #d4145a);
+  font-size: 18px;
+  border-left: 7px solid;
+}
+.border-gradient-right {
+  border-right: 4px solid #fbb03b;
+}
+
+.footer-icons{
+  transition: font-size 0.5s;
+}
+.footer-icons i:hover{
+  background: -webkit-linear-gradient(#d4145a, #fbb03b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+}
+
+.nav-avatar {
+  position: relative;
+  width: 80px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.nav-avatar img {
+  width: 100%;
+  height: auto;
+}
+
+input.search-query{
+  background-color: #2b2b2b;
+}
+input[type=text]:focus{
+  background-color: #2b2b2b;
+  color: white;
+}

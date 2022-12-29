@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fantso</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
+    <link rel="icon" href="{% static 'img/icon.png' %}" type="image/gif" sizes="16x16">
+    <!-- CSS only -->
+</head>
+
+<style>
+
+    *{
+font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+    .view{
+        text-decoration: none;
+        color: #fbb03b;
+        justify-content: center;
+    }
+
+    .view a:hover{
+            text-decoration: none;
+            color: #d4145a;
+            font-size: 15px;
+        }
+
+   .text-overflow{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width:100px;
+   }
+   .bod{
+       background-color: #2b2b2b;
+       overflow-y: scroll;
+       -ms-overflow-style: none;
+        scrollbar-width: none;
+   }
+   .bod::-webkit-scrollbar {
+    display: none;
+}
+</style>
+
+<body class="d-flex flex-column min-vh-100 bod">
+    {% block navbar %}
+
+        {% include "page/navbar.html" %}
+
+    {% endblock navbar %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-8">
+
+        </div>
+        <div class="col-lg-4 mt-5 pe-5">
+
+            <div class="shadow rounded overflow-hidden" style="background-color: #2A2A2A">
+
+                <div class="border-bottom border-gray-100 flex items-baseline justify-between py-4 px-5" style="background-color: #272727">
+                    <h2 class="fw-bolder h3" style="color: #fbb03b">Users You Can Follow</h2>
+                </div>
+
+                <div class="divide-gray-300 divide-gray-50 divide-opacity-50 divide-y ps-3 pt-2">
+                    {% for suggestion in suggestions_username_profile_list %}
+                        <div class="d-flex items-center justify-between py-3">
+                            <div class="d-flex py-1 col-9">
+                                <a href="/profile/{{suggestion.user}}" >
+                                    <img src="{{suggestion.profileimg.url}}" style="width: 2.7rem;height: 2.7rem;border-radius: 9999px;">
+                                </a>
+                                <div class="d-flex flex-column ps-4" style="color: white">
+                                    <span class="text-capitalize fw-bolder py-1">{{suggestion.user}}</span>
+                                    <span class="text-capitalize text-muted text-overflow"><small>{{suggestion.bio}}</small></span>
+                                </div>
+                            </div>
+                            <div class="py-3">
+                            <a href="/profile/{{suggestion.user}}" class="view">View User</a>
+                            </div>
+                            </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+ {% block footer %}
+
+        {% include "page/footer.html" %}
+
+    {% endblock %}
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
+    </script>
+<script src="https://kit.fontawesome.com/2729980c29.js" crossorigin="anonymous"></script>
+</html>

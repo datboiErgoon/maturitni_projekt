@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}
+    <style>
+        html, body {
+            background-color: #2b2b2b;
+        }
+
+        .colour {
+            color: #fbb03b;
+        }
+
+        a:hover {
+            color: #d4145a;
+        !important;
+        }
+
+        .area {
+            background-color: #2A2A2A;
+            color: white;
+            border: none;
+            overflow: auto;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            width: 80%;
+        }
+
+        .btn-grad {
+            background-image: linear-gradient(to right, #d4145a 0%, #fbb03b 50%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.5s;
+            background-size: 250% auto;
+            color: white;
+            border-radius: 10px;
+            display: block;
+            border: 3px #272727 solid;
+        }
+
+        .btn-grad:hover {
+            background-position: 20% 80%;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+    <div class="container m-auto">
+        <h1 class="text-2xl mt-3 pb-3 text-white"><a class="colour" href="/main">Home</a> / Account Settings for
+            <b>{{ user.username }}</b></h1>
+        <hr style="color: #999999">
+        <div class="ms-auto py-5 row">
+            <div class="col-6 col-md-4">
+                <h3 class="float-left text-white mt-5"> General</h3>
+            </div>
+
+            <div class="float-right col-12 col-md-8 text-white"
+                 style="background-color: #272727; border: 1px solid #272727; border-radius: 25px">
+                <form action="/songs_edit" method="POST">
+                    {% csrf_token %}
+                    <div>
+                        {% for song in songs %}
+                            <div>
+                            <input type="text" name="caption_{{ forloop.counter0 }}" value="">
+                            <input type="text" name="genre_{{ forloop.counter0 }}" value="{{ song.genre }}">
+                            <input type="text" name="lyrics_{{ forloop.counter0 }}" value="{{ song.lyrics }}">
+                            <input type="datetime-local" name="created_at_{{ forloop.counter0 }}" value="{{ song.title }}">
+                            <input type="radio" id="is_public" name="is_public_{{ forloop.counter0 }}" value="True">
+                            <label for="html">Public</label><br>
+                            <input type="radio" id="is_public" name="is_public_{{ forloop.counter0 }}" value="False">
+                            <label for="html">Private</label><br>
+                            <input type="hidden" name="total" value="{{ songs|length }}" />
+                            <input type="hidden" name="id_{{ forloop.counter0 }}" value="{{ song.id }}" />
+                            </div>
+                    </div>
+                <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">
+                    <div class="py-3">
+                        <label class="text-muted">Title</label>
+                        <div class="pt-2">
+                            <input type="text" name="title_{{ forloop.counter0 }}" value="{{ song.title }}"
+                                   style="height: 70px" class="shadow-none area">
+                        </div>
+                    </div>
+
+                    <div class="py-3">
+                        <label for="about" class="float-start text-muted">Playlist name</label>
+                        <div class="mt-4 pt-2">
+                            <input type="text" name="playlist_{{ forloop.counter0 }}" value="{{ song.playlist }}">
+                        </div>
+                    </div>
+                    <div class="py-3">
+                        <label class="text-muted">Track Number</label>
+                        <div class="pt-2">
+                            <input type="number" name="track_number_{{ forloop.counter0 }}" min="1" max="80" step="1" value="{{ song.trackNumber }}">
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+
+                <div class="p-3 pt-0 px-4 flex d-flex justify-content-end">
+                    <button class="p-2 px-4 btn-grad"><a href="/main" class="text-white"
+                                                         style="text-decoration: none;">Cancel</a></button>
+                    <button type="submit" class="px-4 btn-grad"> Save</button>
+                </div>
+                </form>
+
+            </div>
+
+        </div>
+        <br>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+{% endblock content %}

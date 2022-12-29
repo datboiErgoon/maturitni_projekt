@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background-color: #2b2b2b;
+}
+.wrapper{
+  color: white;
+  overflow: hidden;
+  max-width: 490px;
+  background: #272727;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.wrapper .title-text{
+  display: flex;
+  width: 200%;
+}
+.wrapper .title{
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+}
+
+input[type="radio"]{
+  display: none;
+}
+.wrapper .form-container{
+  width: 100%;
+  overflow: hidden;
+}
+.form-container .form-inner{
+  display: flex;
+  width: 200%;
+}
+.form-container .form-inner form{
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.form-inner form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+.form-inner form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+  background: #2b2b2b;
+  color: white;
+}
+.form-inner form .field input:focus{
+  border-color: #fbb03b;
+}
+
+.form-inner form .field input::placeholder{
+  color: #999;
+  transition: all 0.3s ease;
+}
+form .field input:focus::placeholder{
+  color: #b3b3b3;
+}
+.form-inner form .signup-link{
+  text-align: center;
+  margin-top: 30px;
+}
+.form-inner form .pass-link a,
+.form-inner form .signup-link a{
+  color: #fbb03b;
+  text-decoration: none;
+}
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover{
+  text-decoration: underline;
+}
+.invalid-feedback{
+  font-size: 25px;
+  border: 2px solid red;
+  padding: 15px;
+  color: red;
+}
+
+.btn-grad{
+    background-image: linear-gradient(to right, #d4145a 0%, #fbb03b 50%);
+    margin: 15px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.5s;
+    background-size: 250% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 3px #272727 solid;
+}
+
+.btn-grad:hover {
+    background-position: 20% 80%;
+    color: #fff;
+    text-decoration: none;
+}
