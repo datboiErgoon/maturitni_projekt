@@ -16,5 +16,6 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('upload_view', views.upload_view, name='upload_view'),
     path('songs_edit', views.songs_edit, name='songs_edit'),
+    path('success', views.success, name='success')
     # path('play/<str:pk>', views.play, name='play')
 ]

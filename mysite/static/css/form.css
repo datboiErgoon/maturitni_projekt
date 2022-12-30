@@ -116,3 +116,10 @@ form .field input:focus::placeholder{
     color: #fff;
     text-decoration: none;
 }
+
+.btn{
+    margin-left: 35px;
+}
+.btn2{
+    margin-left: 75px;
+}

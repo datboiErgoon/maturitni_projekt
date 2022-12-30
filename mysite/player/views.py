@@ -125,7 +125,6 @@ def upload_view(request):
 
             playlist_name = audio["TALB"]
 
-
             playlists = Playlist.objects.filter(playlistName=playlist_name, artist=db_user)
             playlist = None
             if len(playlists) == 0:
@@ -133,8 +132,10 @@ def upload_view(request):
             else:
                 playlist = playlists[0]
 
-            return Post.objects.create(user=user, song=file_addr, image=f'{file_addr}.jpg', title=property_by_tag_safe("TIT2"),
-                                       runtime=audio.info.length, trackNumber=0, lyrics=property_by_tag_safe("USLT::XXX"),
+            return Post.objects.create(user=user, song=file_addr, image=f'{file_addr}.jpg',
+                                       title=property_by_tag_safe("TIT2"),
+                                       runtime=audio.info.length, trackNumber=0,
+                                       lyrics=property_by_tag_safe("USLT::XXX"),
                                        playlist=playlist)
 
         # add_song(request.FILES['file_0'])
@@ -152,6 +153,7 @@ def upload_view(request):
 def songs_edit(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
+
     db_user = User.objects.get(username=request.user.username)
 
     print("here", request.POST["total"])
@@ -196,10 +198,17 @@ def songs_edit(request):
 
             p.save(update_fields=["title", "trackNumber", "caption", "genre", "lyrics", "isPublic", "playlist"])
 
-        return redirect('/')
+        return redirect('success.html', {'songs': [], 'user_profile': db_user, 'user_profile': user_profile})
     else:
         form = Post()
     return render(request, 'songs_edit.html', {'songs': [], 'user_profile': db_user, 'user_profile': user_profile})
+
+
+@login_required(login_url='signin')
+def success(request):
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Profile.objects.get(user=user_object)
+    return render(request, 'success.html', {'user_profile': user_profile})
 
 
 @login_required(login_url='signin')
