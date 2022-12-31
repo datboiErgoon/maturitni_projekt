@@ -1,5 +1,5 @@
 <div align="center">
-<img src="mysite/audio/static/img/logo.png" width="600" height="150">
+<img src="mysite/static/img/logo.png" width="600" height="150">
  </div>
  <br>
  
