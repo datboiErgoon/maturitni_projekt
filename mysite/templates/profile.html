@@ -77,15 +77,18 @@
 
 								</aside>
 							</div><!-- sidebar -->
-							<div class="col-lg-6">
-								<div class="central-meta">
+							<div class="col-lg-6 mt-5 py-5">
+								<div class="central-meta mt-5 py-5">
 									<ul class="photos">
 
-										{% for post in user_posts %}
+										{% for playlist in user_playlists %}
 										<li>
 											<a class="strip" href="{{post.image.url}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
-												<img src="{{post.image.url}}" style="height: 250px; width: 300px;" alt=""></a>
+												<h3>{{ playlist.playlistName }}</h3>
+                                                <img src="{{playlist.image}}" style="height: 250px; width: 300px;" alt="">
+                                            </a>
 										</li>
+
 										{% endfor %}
 
 

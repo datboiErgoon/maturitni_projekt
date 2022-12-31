@@ -2,5 +2,55 @@
 
 {% block content %}
     {% load static %}
-    <p>ello</p>
+    <style>
+        .btn-grad {
+            background-image: linear-gradient(to right, #d4145a 0%, #fbb03b 50%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.5s;
+            background-size: 250% auto;
+            color: white;
+            border-radius: 10px;
+            display: block;
+            border: 3px #272727 solid;
+        }
+
+        .btn-grad:hover {
+            background-position: 20% 80%;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+
+        <div class="container">
+                <div class="d-flex flex-row py-4 mt-1">
+
+            <div class="pt-4 mt-1">
+                <h3 class="text-white">1. Upload Songs</h3>
+            </div>
+            <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
+
+            <div class="pt-4 mt-1">
+                <h3 class="text-white">2. Edit Info</h3>
+            </div>
+            <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
+
+            <div class="pt-4 mt-1">
+                <h3 style="color: #fbb03b">3. Done!</h3>
+            </div>
+        </div>
+
+    <div class="container py-5 mb-5 mt-5" style="background-color: #272727; border: 1px solid #272727; border-radius: 25px; width: 70%">
+        <div class="container d-flex align-items-center justify-content-center py-5">
+            <h2 class="text-uppercase " style="color: #fbb03b">You have successfully created your playlist</h2>
+        </div>
+        <div class="container d-flex align-items-center justify-content-center">
+            <button type="submit" class="px-3 btn-grad" onclick="location.href='/main'">Return to the Home Page</button>
+        </div>
+
+    </div>
+</div>
 {% endblock content %}

@@ -16,6 +16,7 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('upload_view', views.upload_view, name='upload_view'),
     path('songs_edit', views.songs_edit, name='songs_edit'),
-    path('success', views.success, name='success')
-    # path('play/<str:pk>', views.play, name='play')
+    path('playlist_image_upload', views.playlist_image_upload, name='playlist_image_upload'),
+    path('success', views.success, name='success'),
+    path('play/<str:artist>/<str:album>/<str:song_id>', views.play, name='play'),
 ]

@@ -10,19 +10,19 @@
         }
 
         .numberCircle {
-          display: inline-block;
-          line-height: 0px;
-          border-radius: 50%;
-          border: 2px solid;
-          font-size: 32px;
+            display: inline-block;
+            line-height: 0px;
+            border-radius: 50%;
+            border: 2px solid;
+            font-size: 32px;
         }
 
         .numberCircle span {
-          display: inline-block;
-          padding-top: 50%;
-          padding-bottom: 50%;
-          margin-left: 8px;
-          margin-right: 8px;
+            display: inline-block;
+            padding-top: 50%;
+            padding-bottom: 50%;
+            margin-left: 8px;
+            margin-right: 8px;
         }
 
         .area {
@@ -60,120 +60,100 @@
     </style>
 
     <div class="container">
-      <div class="d-flex flex-row py-3">
+        <div class="d-flex flex-row py-4 mt-1">
 
-        <div class="pt-4">
-            <span class="numberCircle text-white"><span>1</span></span>
-            <h2 class="text-white">Upload Songs</h2>
-        </div>
-        <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
-
-        <div class="pt-4" style="background-color: #272727">
-            <span class="numberCircle" style="color: #fbb03b"><span>2</span></span>
-            <h2 style="color: #fbb03b">Edit Info</h2>
-        </div>
-        <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
-
-        <div class="pt-4">
-            <span class="numberCircle text-white"><span>3</span></span>
-            <h2 class="text-white">Done!</h2>
-        </div>
-</div>
-    <div class="container m-auto">
-        <div class="ms-auto py-5 row">
-            <div class="col-2 col-md-2">
+            <div class="pt-4 mt-1">
+                <h3 class="text-white">1. Upload Songs</h3>
             </div>
+            <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
 
-            <div class="float-right col-12 col-md-8 text-white"
-                 style="background-color: #272727; border: 1px solid #272727; border-radius: 25px">
-                           <div class="p-4">
-                    <div class="py-3 px-3">
-                        <h2 style="color: #fbb03b">Edit Song Info</h2>
-                    </div>
-                <form action="/songs_edit" method="POST">
-                    {% csrf_token %}
-                    <div>
-                        {% for song in songs %}
-                            <input type="text" name="caption_{{ forloop.counter0 }}" value="">
-{#                            <input type="text" name="genre_{{ forloop.counter0 }}" value="{{ song.genre }}">#}
-{#                            <input type="datetime-local" name="created_at_{{ forloop.counter0 }}" value="{{ song.title }}">#}
-{#                            <input type="radio" id="is_public" name="is_public_{{ forloop.counter0 }}" value="True">#}
-{#                            <label for="html">Public</label><br>#}
-{#                            <input type="radio" id="is_public" name="is_public_{{ forloop.counter0 }}" value="False">#}
-{#                            <label for="html">Private</label><br>#}
-{#                            <input type="hidden" name="total" value="{{ songs|length }}" />#}
-{#                            <input type="hidden" name="id_{{ forloop.counter0 }}" value="{{ song.id }}" />#}
-                    </div>
-                <div class="p-4">
-                    <div class="py-3">
-                        <label class="text-muted">Title</label>
-                        <div class="pt-2">
-                            <textarea id="about" name="title_{{ forloop.counter0 }}" style="height: 50px; width: 400px" class="area">{{ song.title }}</textarea>
-                        </div>
-                    </div>
+            <div class="pt-4 mt-1">
+                <h3 style="color: #fbb03b">2. Edit Info</h3>
+            </div>
+            <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
 
-                    <div class="py-3">
-                        <label for="about" class="float-start text-muted">Playlist/Album name</label>
-                        <div class="mt-4 pt-2">
-                            <textarea id="about" name="playlist_{{ forloop.counter0 }}" style="height: 50px; width: 400px" class="area">{{ song.playlist }}</textarea>
-                        </div>
-                    </div>
-                    <div class="py-3">
-                        <label class="text-muted">Track Number</label>
-                        <div class="pt-2">
-                            <input type="number" class="area" style="width: 50px" name="track_number_{{ forloop.counter0 }}" min="1" max="80" step="1" value="{{ song.trackNumber }}">
-                        </div>
-                    </div>
+            <div class="pt-4 mt-1">
+                <h3 class="text-white">3. Done!</h3>
+            </div>
+        </div>
 
-                    <div class="py-3">
-                        <label for="about" class="float-start text-muted">Genre</label>
-                            <div class="mt-4 pt-2">
-                                <textarea id="about" name="genre_{{ forloop.counter0 }}" style="height: 50px; width: 300px" class="area">{{ song.genre }}</textarea>
-                            </div>
-                    </div>
-
-                    <div class="py-3">
-                        <label for="about" class="float-start text-muted">Date</label>
-                            <div class="mt-4 pt-2">
-                                <input type="datetime-local" class="area" style="width: 200px" name="created_at_{{ forloop.counter0 }}" value="{{ song.created_at }}">
-                            </div>
-                    </div>
-
-                    <div class="py-3">
-                        <label for="about" class="float-start text-muted">Lyrics</label>
-                            <div class="mt-4 pt-2">
-                                <textarea id="about" name="lyrics_{{ forloop.counter0 }}" style="height: 300px" class="area">{{ song.lyrics }}</textarea>
-                            </div>
-                    </div>
-
-                    <div class="py-3">
-                        <label for="about" class="float-start text-muted">Visibility</label>
-                            <div class="mt-4 pt-2">
-                            <input type="radio" id="is_public" name="is_public_{{ forloop.counter0 }}" value="True">
-                            <label for="html">Public</label><br>
-                            <input type="radio" id="is_public" name="is_public_{{ forloop.counter0 }}" value="False">
-                            <label for="html">Private</label><br>
-                            </div>
-                    </div>
-                            <input type="hidden" name="total" value="{{ songs|length }}" />
-                            <input type="hidden" name="id_{{ forloop.counter0 }}" value="{{ song.id }}" />
-                {% endfor %}
+        <div class="container m-auto">
+            <div class="ms-auto py-5 row">
+                <div class="col-2 col-md-2">
                 </div>
 
-                <div class="p-3 pt-0 px-4 flex d-flex justify-content-end">
-                    <input type="reset" class="p-2 px-4 btn-grad" value="Reset" style="text-decoration: none;">
-                    <button type="submit" class="px-4 btn-grad">Save</button>
+                <div class="col-10 col-md-8 text-white"
+                     style="background-color: #272727; border: 1px solid #272727; border-radius: 25px">
+                    <div class="p-4">
+                        <div class="py-4 px-3">
+                            <h2 style="color: #fbb03b">Edit Song Info</h2>
+                        </div>
+                        <form action="/songs_edit" method="POST">
+                            {% csrf_token %}
+                            <div>
+                                {% for song in songs %}
+                                    </div>
+                            <div class="p-4">
+
+                                <div class="pt-2 pb-4">
+                                    <label class="text-muted">Song ID</label>
+                                    <p class="text-muted">{{ song.id }}</p>
+                                    <audio controls>
+                                        <source src="{{ song.song.url }}" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+
+                                <div class="py-4">
+                                    <label class="text-muted">Title</label>
+                                    <div class="pt-2">
+                                        <textarea id="about" name="title_{{ forloop.counter0 }}"
+                                                  style="height: 50px; width: 400px"
+                                                  class="area">{{ song.title }}</textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="py-4">
+                                    <label class="text-muted">Track Number</label>
+                                    <div class="pt-2">
+                                        <input type="number" class="area" style="width: 50px"
+                                               name="track_number_{{ forloop.counter0 }}" min="1" max="80" step="1"
+                                               value="{{ forloop.counter }}">
+                                    </div>
+                                </div>
+
+
+                                <div class="py-4">
+                                    <label for="about" class="float-start text-muted">Lyrics</label>
+                                    <div class="mt-4 pt-2">
+                                        <textarea id="about" name="lyrics_{{ forloop.counter0 }}"
+                                                  style="height: 300px" class="area">{{ song.lyrics }}</textarea>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="total" value="{{ songs|length }}"/>
+                                <input type="hidden" name="id_{{ forloop.counter0 }}" value="{{ song.id }}"/>
+                                <input type="hidden" name="playlist" value="{{ playlist.playlistName }}"/>
+
+                                {% endfor %}
+                                </div>
+                            <hr class="text-white">
+                            <div class="p-3 pt-0 px-4 flex d-flex justify-content-end">
+                                <input type="reset" class="p-2 px-4 btn-grad" value="Reset"
+                                       style="text-decoration: none;">
+                                <button type="submit" class="px-4 btn-grad">Save</button>
+                            </div>
+                        </form>
+
+                    </div>
+
                 </div>
-                </form>
+                <br>
 
             </div>
 
         </div>
-        <br>
-
-    </div>
-
-    </div>
 
     </div>
 

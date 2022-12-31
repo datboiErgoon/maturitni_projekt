@@ -3,78 +3,103 @@
 {% block content %}
     {% load static %}
 
-<style>
-    .numberCircle {
-      display: inline-block;
-      line-height: 0px;
-      border-radius: 50%;
-      border: 2px solid;
-      font-size: 32px;
-    }
+    <style>
+        .image-upload > input {
+            display: none;
+        }
 
-    .numberCircle span {
-      display: inline-block;
-      padding-top: 50%;
-      padding-bottom: 50%;
-      margin-left: 8px;
-      margin-right: 8px;
-    }
-    .image-upload>input {
-      display: none;
-    }
-    .pointer{
-        cursor: pointer;
-      }
-</style>
+        .pointer {
+            cursor: pointer;
+        }
 
-<div class="container">
-    <div class="d-flex flex-row py-3">
+        .area  {
+            background-color: #2A2A2A;
+            color: white;
+            border: none;
+            overflow: auto;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            width: 80%;
+}
 
-        <div class="pt-4" style="background-color: #272727">
-            <span class="numberCircle" style="color: #fbb03b"><span>1</span></span>
-            <h2 style="color: #fbb03b">Upload Songs</h2>
-        </div>
-        <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
+    </style>
 
-        <div class="pt-4">
-            <span class="numberCircle text-white"><span>2</span></span>
-            <h2 class="text-white">Edit Info</h2>
-        </div>
-        <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
+    <div class="container">
+        <div class="d-flex flex-row py-4 mt-1">
 
-        <div class="pt-4">
-            <span class="numberCircle text-white"><span>3</span></span>
-            <h2 class="text-white">Done!</h2>
-        </div>
-</div>
+            <div class="pt-4 mt-1">
+                <h3 style="color: #fbb03b">1. Upload Songs</h3>
+            </div>
+            <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
 
-  <div class="container m-auto">
-    <div class="ms-auto py-5 row">
-        <div class="col-2 col-md-2">
+            <div class="pt-4 mt-1">
+                <h3 class="text-white">2. Edit Info</h3>
+            </div>
+            <i class="fa-solid fa-arrow-right fa-2xl py-5 px-5 text-white"></i>
+
+            <div class="pt-4 mt-1">
+                <h3 class="text-white">3. Done!</h3>
+            </div>
         </div>
 
-        <div class="col-12 col-md-8" style="background-color: #272727; border: 1px solid #272727; border-radius: 25px">
-                <div class="p-4">
-                    <div class="py-3">
-                        <h2 style="color: #fbb03b">Upload your songs</h2>
-                        <p class="text-secondary"><small>Note: You can upload more than one file at a time.</small></p>
-                    </div>
-
-                    <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                        <div class="image-upload container d-flex align-items-center justify-content-center py-5">
-                            <label for="file-input">
-                                <img src="{% static 'img/upload.png' %}" class="pointer" width="250px" height="200px">
-                            </label>
-                            <input id="file-input" type="file" name="files" value="Upload" multiple="multiple">
-                        </div>
+        <div class="container m-auto">
+            <div class="ms-auto py-5 row">
+                <div class="col-2 col-md-2">
                 </div>
-            <div class="p-3 pt-0 px-4 flex d-flex justify-content-end">
-                <button type="submit" class="px-4 btn-grad"> Save</button>
+
+                <div class="col-12 col-md-8"
+                     style="background-color: #272727; border: 1px solid #272727; border-radius: 25px">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="p-4">
+                            <div class="py-3">
+                                <h2 style="color: #fbb03b">Upload your songs</h2>
+                                <p class="text-secondary"><small>Note: You can upload more than one file at a
+                                    time.</small>
+                                </p>
+                            </div>
+                            {% csrf_token %}
+                            <div class="image-upload container d-flex align-items-center justify-content-center py-4 mt-3" style="border: 1px solid white; border-radius: 40px; width: 60%">
+                                <label for="file-input">
+                                    <img src="{% static 'img/upload.png' %}" class="pointer" width="250px"
+                                         height="200px">
+                                </label>
+                                <input id="file-input" type="file" name="files" value="Upload" multiple="multiple">
+                            </div>
+
+                            <h3 class="text-white pt-5 pb-2">Playlist Settings:</h3>
+
+
+                            <div class="py-3">
+                                <label class="text-muted">Title</label>
+                                <div class="pt-2">
+                                    <textarea id="about" name="title" style="height: 50px; width: 400px" class="area"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="py-3">
+                                <label class="text-muted">Caption</label>
+                                <div class="pt-2">
+                                    <textarea id="about" name="caption" style="height: 50px; width: 400px" class="area"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="py-3">
+                                <label class="text-muted">Genre</label>
+                                <div class="pt-2">
+                                    <textarea id="about" name="genre" style="height: 50px; width: 400px" class="area"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 pt-0 px-4 flex d-flex justify-content-end">
+                            <button type="submit" class="px-4 btn-grad"> Save</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-      </form>
-  </div>
-</div>
 {% endblock content %}
