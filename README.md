@@ -1,20 +1,19 @@
 <div align="center">
-<img src="mysite/audio/static/img/logo.png" width="600" height="150">
+<img src="mysite/static/img/logo.png" width="600" height="150">
  </div>
  <br>
  
 ## Autor projektu: 
-- **Ondřej Repko**
+**Ondřej Repko**
 
 ## Konzultanti
 - [Štěpán Krautwurst](https://github.com/stallion7)
 - [Tomáš Fryčka](https://github.com/kektoor)
-- [Jakub Heisig](https://github.com/ncplyn)
-- [Jan Slivka](https://github.com/HansS04)
+- [Filip Hostinský](https://github.com/SeezoCode)
 - [Sofja Klopcová]()
  
- ## Hudební webová stránka s použitím Django 
-Jakožto maturitní projekt jsem se rozhodl vytvořit web, přes který by si uživatel mohl importovat **vlastní MP3 soubory** a následně si hudbu přehrát. **Souborové ID3 Tagy by se přečetly a zobrazily na stránce** společně s funkcí přehrání a dalších několika podpůrných funkcí _(Tlačítka Forward/Backward, Randomizer..)_. Dále by se na webové stránce dokázal uživatel přihlásit skrz **Log-in systém**.
+ ## Hudební webová sociální stránka s použitím Django 
+Jakožto maturitní projekt jsem se rozhodl vytvořit sociální webovou aplikaci, přes který by si uživatel mohl importovat **vlastní MP3 soubory** a následně si hudbu přehrát ve formě playlistů či samotných hudebních front. **Souborové ID3 Tagy by se přečetly a zobrazily na stránce** společně s funkcí přehrání a dalších několika podpůrných funkcí _(Tlačítka Forward/Backward, ~~Randomizer~~..)_. Dále by se na webové stránce dokázal uživatel přihlásit skrze vlastní autentifikační systém.
 
 ## Proč jsem si vybral tento projekt?
 Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webových stránek. Také jsem se chtěl zdokonalit v pracování jak s jazykem _Python_, tak i s _Djangem_, což je tento projekt pro mě jako stvořený.
@@ -22,7 +21,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 ## Cíle
 - [x] **Import MP3 souborů** a celých alb
 - [x] **Přečtení ID3 Tagů a zobrazení** v responzivní podobě na stránce _(včetně grafiky)_
-- [ ] Funkce **Fronta**, **Randomizer**, **Zobrazení textu**, **Vyhledání skladby na portálu Youtube** a **autora na Wikipedia**
+- [x] Funkce **Fronta**, ~~**Randomizer**~~, **Zobrazení textu**, ~~**Vyhledání skladby na portálu Youtube**~~ a ~~**autora na Wikipedia**~~
 - [x] **Simple Log-in a Register systém**
 - [ ] **Určitá kustomizace stránky** _(Dark/White theme, Pozadí, Téma, UI..)_
 
@@ -33,6 +32,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - **HTML, CSS, Bootstrap 5.1**
 - **Mutagen Python Library**
 - **Různé JS a Python knihovny** _(pillow, widget-tweaks, fontawesome..)_
+- **SQLite**
 
 ## Časový harmonogram a postup
 
@@ -63,6 +63,7 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 - 5.12 - Zjednodušení navbaru, přidání footeru
 - 6.12 - Bugfixy, přidání gradientu do navbar linků
 - 13.12 - Lépe zformátované README.md, výpis z importu 
+-14.12 - 31.12 - Kompletní přeměna projektu do formy sociálního webu, přidány funkce na upload, vyobrazení a přehrátí skladeb, about page, search, user kustomizace, profil, posts..
 
 # Zdroje
 ### Použité technologie a programy:
@@ -80,3 +81,4 @@ Tento projekt jsem si vybral, jelikož odjakživa miluji hudbu a tvorbu webovýc
 6. **FontAwesome** - https://fontawesome.com/icons
 7. **Basic Navbar Tutorial** - https://www.youtube.com/watch?v=qNifU_aQRio
 8. **Footer Tutorials** - https://mdbootstrap.com/docs/standard/navigation/footer/
+9. **Social Website tutorial** - https://youtu.be/xSUm6iMtREA
