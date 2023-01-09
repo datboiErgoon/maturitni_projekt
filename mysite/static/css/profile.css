@@ -19,7 +19,6 @@ html, body{
     z-index: 99;
 }
 .bio{
-    background-color: white;
     position: absolute;
     top: 75%;
 }
@@ -50,4 +49,10 @@ html, body{
 }
 a:hover{
     color: #d4145a;!important;
+}
+
+.postList{
+    position: absolute;
+    top: 80%;
+    list-style-type: none;
 }

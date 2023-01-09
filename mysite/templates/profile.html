@@ -62,50 +62,29 @@
 					</div>
 				</div>
 			</div>
-			<div class="bio ms-5 px-5 d-block">
+			<div class="bio ms-5 px-5 d-block text-white" style="background-color: #2b2b2b">
 					{{user_profile.bio}}
 			</div>
 
-
-		<div class="gap gray-bg">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="row" id="page-contents">
-							<div class="col-lg-3">
-								<aside class="sidebar static">
-
-								</aside>
-							</div><!-- sidebar -->
-							<div class="col-lg-6 mt-5 py-5">
-								<div class="central-meta mt-5 py-5">
-									<ul class="photos">
-
-										{% for playlist in user_playlists %}
-										<li>
-											<a class="strip" href="{{post.image.url}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
-												<h3>{{ playlist.playlistName }}</h3>
-                                                <img src="{{playlist.image}}" style="height: 250px; width: 300px;" alt="">
-                                            </a>
-										</li>
-
-										{% endfor %}
-
-
-
-									</ul>
-									<!--<div class="lodmore"><button class="btn-view btn-load-more"></button></div>-->
-								</div><!-- photos -->
-							</div><!-- centerl meta -->
-							<div class="col-lg-3">
-								<aside class="sidebar static">
-
-								</aside>
-							</div><!-- sidebar -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+            <div class="container postList">
+                <div class="row">
+                    <div class="col-3"></div>
+                        <div class="col-5">
+                        <div class="">
+                        <h4>Posts:</h4>
+                        <ul class="list-group list-group-horizontal">
+                        {% for playlist in playlist_and_first_song %}
+                            <li class="list-group-item">
+                                <a class="strip" href="/play/{{ user_profile.user.username }}/{{ playlist.playlist.playlistName }}/{{playlist.song.id}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
+                                    <h3>{{ playlist.playlist.playlistName }}</h3>
+                                    <img src="{{playlist.playlist.image.url}}" style="height: 250px; width: 300px;" alt="">
+                                </a>
+                            </li>
+                        {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </body>
 </html>

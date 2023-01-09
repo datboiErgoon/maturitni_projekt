@@ -29,8 +29,7 @@ class Playlist(models.Model):
     playlistName = models.CharField(max_length=100)
     artist = models.ForeignKey(User, on_delete=models.CASCADE)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, blank=True, null=True)
-    no_of_likes = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='album_images/', default='blank-album-picture.jpg')
+    image = models.ImageField(upload_to='album_images/', default='blank-playlist-picture.png')
     created_at = models.DateTimeField(default=datetime.now)
     caption = models.TextField(blank=True, null=True)
 
@@ -41,13 +40,12 @@ class Playlist(models.Model):
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='post_images/', default='blank-post-picture.jpg')
+    image = models.ImageField(upload_to='post_images/', default='cd.png')
     song = models.FileField(upload_to="post_songs/")
     title = models.CharField(max_length=255, default='unknown')
     trackNumber = models.IntegerField(max_length=255, blank=True, null=True, default=0)
     runtime = models.IntegerField(max_length=255, blank=True, null=True, default=0)
     lyrics = models.TextField(blank=True, null=True)
-    no_of_likes = models.IntegerField(default=0)
     playlist = models.ForeignKey(Playlist, on_delete=models.CASCADE)
 
     class Meta:
@@ -55,14 +53,6 @@ class Post(models.Model):
 
     def __str__(self):
         return f"Post - user:{self.user}, title: {self.title}"
-
-
-class LikePost(models.Model):
-    post_id = models.CharField(max_length=500)
-    username = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.username
 
 
 class FollowersCount(models.Model):

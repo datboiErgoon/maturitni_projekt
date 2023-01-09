@@ -29,12 +29,12 @@
 
         <form action="upload" method="POST" enctype="multipart/form-data" >
             {% csrf_token %}
-        <ul class="px-3">
+        <ul class="px-3 pt-1">
             <a href="/upload_view">
-        <i class="fa-solid fa-folder-plus fa-2xl" style="color: white"></i></a>
+        <i class="fa-solid fa-folder-plus fa-3x" style="color: white"></i></a>
         </ul>
         </form>
-        <ul class="log text-center me-5 px-4">
+        <ul class="log text-center me-5 px-4 pt-1">
             <li class="nav-item dropdown">
      <img class="nav-link dropdown-toggle nav-avatar" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="{{user_profile.profileimg.url}}">
                 <div class="dropdown-menu" style="background-color: #272727;"; role="menu" aria-labelledby="menu1">

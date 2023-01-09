@@ -11,6 +11,7 @@
   height: var(--player-button-width);
   cursor: pointer;
   color: white;
+    font-size: 20px;
 }
 
 .button:hover{
@@ -21,11 +22,6 @@
     width: 100px;
     word-wrap: break-word;
     }
-
-.audio-player {
-  --player-button-width: 3em;
-    ...
-}
 </style>
 
     <audio id="player" src="{{ current_song.song.url }}"></audio>
@@ -42,7 +38,7 @@
                <hr class="text-white">
             </div>
             <div class="py-1">
-                <p class="h3 text-white">ARTIST: <a class="h4 fw-bolder limit" style="color: #fbb03b; text-decoration: none" href="">@{{ playlist.artist.username }}</a></p>
+                <p class="h3 text-white">ARTIST: <a class="h4 fw-bolder limit" style="color: #fbb03b; text-decoration: none" href="/profile/{{ playlist.artist.username }}">@{{ playlist.artist.username }}</a></p>
             </div>
         </div>
 
@@ -56,12 +52,24 @@
             </div>
             <input id="progress" style="width: 100%" type="range" min="0" max="1000" value="0">
 
-            <div class="controls d-flex align-items-center justify-content-center pt-3" style="width: 100%;">
-                <button id="skip-backward" class="button px-5 me-3" style="width: 50px; "><i class="fa-solid fa-circle-chevron-left fa-2xl"></i></button>
-                <button id="play-pause" class="button px-5" style="width: 50px; "><i class="fa-solid fa-circle-play fa-2xl"></i></button>
-                <button id="skip-forward" class="button px-5 ms-3" style="width: 50px; "><i class="fa-solid fa-circle-chevron-right fa-2xl"></i></button>
+            <div class="d-flex bd-highlight">
+                <div class="w-100">
+                    <p style="color: #fbb03b; font-size: 12px" id="current_time">0:00</p>
+                </div>
+
+                <div>
+                    <p style="color: #fbb03b; font-size: 12px" id="total_time">0:00</p>
+                </div>
+
             </div>
 
+            <div class="controls d-flex align-items-center justify-content-center pt-3" style="width: 100%;">
+                <button id="skip-backward" class="button px-5 me-5" style="width: 50px; "><i class="fa-solid fa-circle-chevron-left fa-2xl"></i></button>
+                <button id="play-pause" class="button px-5" style="width: 50px; "><i class="fa-solid fa-circle-play fa-2xl"></i></button>
+                <button id="skip-forward" class="button px-5 ms-5" style="width: 50px; "><i class="fa-solid fa-circle-chevron-right fa-2xl"></i></button>
+            </div>
+            <input id="volume" type="range" min="0" max="1" step="0.1" value="0.5" oninput="audio.volume=value" />
+            <p>{{ current_song.lyrics }}</p>
         </div>
 
         <div class="col-3 ms-3 shadow-sm" style="background-color: #272727; border: 3px solid #2b2b2b;">
@@ -69,11 +77,19 @@
                 <ol style="list-style-type: none;">
                     {% for song in songs %}
                     <li class="py-2">
+                        {% if song.id == current_song.id %}
+                        <div class="me-4" style="background-color: #202020">
+                            <img class="" style="height: 50px; width: 50px" src="{{ song.image.url }}">
+                            <a style="color: #fbb03b; text-decoration: none;" class="ps-1"
+                               href="/play/{{ artist }}/{{ song.playlist.playlistName }}/{{ song.id }}">{{ song.title }}</a></div>
 
-                        <div class="me-4" style="background-color: #2b2b2b">
-                            <img class="" style="height: 50px; width: 50px" src="{{ current_song.image.url }}">
+                            {% else %}
+                            <div class="me-4" style="background-color: #2b2b2b">
+                            <img class="" style="height: 50px; width: 50px" src="{{ song.image.url }}">
                             <a style="color: #fbb03b; text-decoration: none" class="ps-1"
                                href="/play/{{ artist }}/{{ song.playlist.playlistName }}/{{ song.id }}">{{ song.title }}</a></div>
+                        {% endif %}
+
                     </li>
     {% endfor %}
         </ol>
@@ -88,6 +104,10 @@
         const skipBackwardButton = document.getElementById('skip-backward');
         const skipForwardButton = document.getElementById('skip-forward');
         const progressBar = document.getElementById('progress');
+        const runtime = {{ current_song.runtime }};
+        const slider = document.getElementById("volume");
+
+        document.getElementById("total_time").innerText = `${Math.floor(runtime / 60)}:${String(Math.round(runtime % 60) -1).padStart(2, '0')}`
 
         playPauseButton.addEventListener('click', () => {
             if (player.paused) {
@@ -117,12 +137,18 @@
 
         function updateProgress() {
             const percent = (player.currentTime / player.duration) * 1000;
+            document.getElementById("current_time").innerText = `${Math.floor(player.currentTime / 59)}:${String(Math.round(player.currentTime % 59)).padStart(2, '0')}`
             progressBar.value = percent;
         }
 
         progressBar.addEventListener('input', () => {
             const time = (progressBar.value / 1000) * player.duration;
             player.currentTime = time;
+        });
+
+        slider.addEventListener('input', (e) => {
+          // Update the audio volume
+            player.volume = e.target.value;
         });
     </script>
 

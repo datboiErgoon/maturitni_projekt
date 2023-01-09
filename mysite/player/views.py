@@ -1,27 +1,26 @@
 import os
-
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from mutagen._util import loadfile
 from mutagen.mp3 import MP3
 from io import BytesIO
 from PIL import Image
 from .forms import UploadSongForm
-from .models import Profile, Post, LikePost, FollowersCount, Playlist, Genre
+from .models import Profile, Post, FollowersCount, Playlist, Genre
 from itertools import chain
 import random
-
 import mutagen
 
 
 # Create your views here.
 
-# user_posts = Post.objects.filter(user=user_object)
-# album_posts = Post.objects.filter(playlist=)
+class Xdd:
+    def __init__(self, playlist, song):
+        self.playlist = playlist
+        self.song = song
 
 
 def index(request):
@@ -38,14 +37,23 @@ def main(request):
 
     user_following = FollowersCount.objects.filter(follower=request.user.username)
 
-    for users in user_following:
-        user_following_list.append(users.user)
+    for user in user_following:
+        user_following_list.append(user.user)
 
-    for usernames in user_following_list:
-        feed_lists = Post.objects.filter(user=usernames)
+    for username in user_following_list:
+        user = User.objects.get(username=username)
+        feed_lists = Playlist.objects.filter(artist=user)
         feed.append(feed_lists)
 
     feed_list = list(chain(*feed))
+
+    playlist_and_first_song = []
+
+    for playlist in feed_list:
+        playlist_and_first_song.append(Xdd(playlist, Post.objects.filter(playlist=playlist).order_by("trackNumber")[0]))
+
+    for p in feed_list:
+        print("success", p.image.url)
 
     # user suggestion starts
     all_users = User.objects.all()
@@ -72,8 +80,9 @@ def main(request):
 
     suggestions_username_profile_list = list(chain(*username_profile_list))
 
-    return render(request, 'base.html', {'user_profile': user_profile, 'posts': feed_list,
-                                         'suggestions_username_profile_list': suggestions_username_profile_list[:4]})
+    return render(request, 'base.html',
+                  {'user_profile': user_profile, 'playlist_and_first_song': playlist_and_first_song,
+                   'suggestions_username_profile_list': suggestions_username_profile_list[:4]})
 
 
 @login_required(login_url='signin')
@@ -89,16 +98,12 @@ def upload_view(request):
         def add_song(myfile, playlist):
             nonlocal ctr
             ctr += 1
-            print(myfile.name)
-
             file_addr = f"post_songs/{user_profile.user}/{title}/"
 
             fs = FileSystemStorage()
             if not os.path.exists(file_addr):
                 os.makedirs(file_addr)
             filename = fs.save(file_addr + myfile.name, myfile)
-
-            print("", file_addr)
 
             audio = MP3("media/" + file_addr + myfile.name)
 
@@ -144,7 +149,7 @@ def upload_view(request):
                                            lyrics=property_by_tag_safe("USLT::XXX"),
                                            playlist=playlist)
             else:
-                return Post.objects.create(user=user, song=file_addr + myfile.name, image=f'blank-post-picture.jpg',
+                return Post.objects.create(user=user, song=file_addr + myfile.name, image=f'blank-post-picture.png',
                                            title=property_by_tag_safe("TIT2"),
                                            runtime=audio.info.length, trackNumber=0,
                                            lyrics=property_by_tag_safe("USLT::XXX"),
@@ -165,7 +170,6 @@ def upload_view(request):
         playlist.save()
 
         f = [add_song(x, playlist) for x in request.FILES.getlist('files')]
-        print(f)
 
         return render(request, 'songs_edit.html',
                       {'songs': f, 'user_profile': db_user, 'playlist': playlist, 'user_profile': user_profile})
@@ -181,11 +185,13 @@ def playlist_image_upload(request):
     user_profile = Profile.objects.get(user=user_object)
     if request.method == 'POST':
         img = request.FILES.get('image')
-        pn = request.POST["playlistName"]
-        user = User.objects.get(username=request.user.username)
-        playlist = Playlist.objects.filter(playlistName=pn, artist=user)[0]
-        playlist.image = img
-        playlist.save()
+        if img is not None:
+            pn = request.POST["playlistName"]
+            user = User.objects.get(username=request.user.username)
+            playlist = Playlist.objects.filter(playlistName=pn, artist=user)[0]
+            playlist.image = img
+            playlist.save(update_fields=["image"])
+
         return redirect("/success", {'user_profile': user_profile})
 
 
@@ -196,11 +202,7 @@ def songs_edit(request):
 
     db_user = User.objects.get(username=request.user.username)
 
-    print("here", request.POST["total"])
-
     if request.method == 'POST':
-        print("here:", request.POST["total"])
-
         playlist_str = request.POST[f'playlist']
         playlist = Playlist.objects.filter(playlistName=playlist_str, artist=db_user)
         playlist_obj = None
@@ -211,10 +213,7 @@ def songs_edit(request):
 
         for i in range(int(request.POST["total"])):
             post_id = request.POST[f'id_{i}']
-            print(f"id: {post_id}")
             title = request.POST[f'title_{i}']
-            print(f"title: {title}")
-            print("---")
 
             p = Post.objects.get(id=post_id)
             p.title = title
@@ -239,12 +238,11 @@ def success(request):
 
 @login_required(login_url='signin')
 def play(request, artist, album, song_id):
-    print("u", artist, album)
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
     user = User.objects.filter(username=artist)[0]
     p = Playlist.objects.filter(artist=user, playlistName=album)[0]
-    songs = Post.objects.filter(playlist=p)
+    songs = Post.objects.filter(playlist=p).order_by("trackNumber")
     current_song = Post.objects.get(id=song_id)
     return render(request, 'play.html', {"songs": songs, "playlist": p, "current_song": current_song, "artist": artist,
                                          'user_profile': user_profile})
@@ -290,28 +288,6 @@ def search(request):
 
 
 @login_required(login_url='signin')
-def like_post(request):
-    username = request.user.username
-    post_id = request.GET.get('post_id')
-
-    post = Post.objects.get(id=post_id)
-
-    like_filter = LikePost.objects.filter(post_id=post_id, username=username).first()
-
-    if like_filter == None:
-        new_like = LikePost.objects.create(post_id=post_id, username=username)
-        new_like.save()
-        post.no_of_likes = post.no_of_likes + 1
-        post.save()
-        return redirect('/')
-    else:
-        like_filter.delete()
-        post.no_of_likes = post.no_of_likes - 1
-        post.save()
-        return redirect('/')
-
-
-@login_required(login_url='signin')
 def profile(request, pk):
     user_object = User.objects.get(username=pk)
     user_profile = Profile.objects.get(user=user_object)
@@ -326,13 +302,18 @@ def profile(request, pk):
     else:
         button_text = 'Follow'
 
+    playlist_and_first_song = []
+
+    for playlist in user_playlists:
+        playlist_and_first_song.append(Xdd(playlist, Post.objects.filter(playlist=playlist).order_by("trackNumber")[0]))
+
     user_followers = len(FollowersCount.objects.filter(user=pk))
     user_following = len(FollowersCount.objects.filter(follower=pk))
 
     context = {
         'user_object': user_object,
         'user_profile': user_profile,
-        'user_playlists': user_playlists,
+        'playlist_and_first_song': playlist_and_first_song,
         'user_post_length': user_post_length,
         'button_text': button_text,
         'user_followers': user_followers,
@@ -389,12 +370,14 @@ def settings(request):
 
 
 def signup(request):
+    # If the function finds a request method of POST, it grabs these variables:
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-
+        # If the password matches the second one, it will check if the entered email already exists.
+        # If it does, the function will send an error message
         if password == password2:
             if User.objects.filter(email=email).exists():
                 messages.info(request, 'Email Already Taken')
@@ -402,6 +385,7 @@ def signup(request):
             elif User.objects.filter(username=username).exists():
                 messages.info(request, 'Username Already Taken')
                 return redirect('signup')
+            # If it doesn't, the variables are saved and the user is authenticated
             else:
                 user = User.objects.create_user(username=username, email=email, password=password)
                 user.save()
@@ -409,7 +393,6 @@ def signup(request):
                 user_login = auth.authenticate(username=username, password=password)
                 auth.login(request, user_login)
 
-                print("user: ", user, "username:", user.username)
                 new_profile = Profile.objects.create(user=user, id_user=user.id)
                 new_profile.save()
                 return redirect('settings')

@@ -7,7 +7,7 @@
                 .search-result-item {
                     padding: 20px;
                     background-color: #272727;
-                    border-radius: 4px
+                    border-radius: 8px;
                 }
 
                 .search-result-item:after,
@@ -32,7 +32,8 @@
                         display: inline-block;
                         margin: -20px 0 -20px -20px;
                         float: left;
-                        width: 200px
+                        width: 200px;
+                        height: 200px;
                     }
                 }
 
@@ -59,7 +60,7 @@
                         text-overflow: ellipsis;
                         white-space: nowrap;
                         overflow: hidden;
-                        width:150px;
+                        width:400px;
                    }
                 </style>
 
@@ -72,14 +73,14 @@
                     <div class="col-md-9 pb-5 pt-2">
 
                         {% for users in username_profile_list %}
-                        <section class="search-result-item">
+                        <section class="search-result-item shadow-sm">
                             <a class="image-link" href="/profile/{{users.user}}"><img class="image" src="{{users.profileimg.url}}">
                             </a>
                             <div class="search-result-item-body">
                                 <div class="row">
                                     <div class="col-sm-9">
                                         <h4><a style="color: #fbb03b" href="/profile/{{users.user}}"><b>@{{users.user}}</b></a></h4>
-                                        <p class="pt-2" style="font-size: 12px;color: #999">{{users.location}}</p>
+                                        <p style="font-size: 12px;color: #999">{{users.location}}</p>
                                         <p class="text-overflow text-white" style="font-size: 13px">{{users.bio}}</p>
                                     </div>
                                 </div>

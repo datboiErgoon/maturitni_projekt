@@ -43,7 +43,7 @@
         </div>
 
     <div class="col-12 col-md-8" style="background-color: #272727; border: 1px solid #272727; border-radius: 25px">
-        <form method="post" action="/playlist_image_upload" enctype="multipart/form-data">
+        <form method="POST" action="/playlist_image_upload" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="p-4">
                 <div class="py-3">
@@ -51,10 +51,10 @@
                     <p class="text-secondary pt-1"><small>Note: You can upload <b>only one</b> picture.</small></p>
                 </div>
                 <div class="image-upload container d-flex align-items-center justify-content-center py-4 mt-3" style="border: 1px solid white; border-radius: 40px; width: 60%">
-                    <label for="file-input">
+                    <label for="image">
                         <img src="{% static 'img/upload.png' %}" class="pointer" width="250px" height="200px">
                     </label>
-                    <input id="file-input" type="file" name="files">
+                    <input id="image" type="file" name="image">
                     <input type="hidden" name="playlistName" value="{{ playlist.playlistName }}">
                     <input type="hidden" name="artist" value="{{ playlist.artist }}">
                 </div>
