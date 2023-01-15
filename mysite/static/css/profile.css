@@ -56,3 +56,12 @@ a:hover{
     top: 80%;
     list-style-type: none;
 }
+
+.active a{
+    color: #fbb03b;
+    text-decoration: none;
+}
+
+.active a:hover{
+    color: #d4145a;
+}

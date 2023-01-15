@@ -12,7 +12,6 @@ urlpatterns = [
     path('signup', views.signup, name='signup'),
     path('signin', views.signin, name='signin'),
     path('logout', views.logout, name='logout'),
-    path('about', views.about, name='about'),
     path('upload_view', views.upload_view, name='upload_view'),
     path('songs_edit', views.songs_edit, name='songs_edit'),
     path('playlist_image_upload', views.playlist_image_upload, name='playlist_image_upload'),

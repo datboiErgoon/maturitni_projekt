@@ -39,6 +39,10 @@
             </div>
             <div class="py-1">
                 <p class="h3 text-white">ARTIST: <a class="h4 fw-bolder limit" style="color: #fbb03b; text-decoration: none" href="/profile/{{ playlist.artist.username }}">@{{ playlist.artist.username }}</a></p>
+{#                <div>#}
+{#                    <h4>lyrics</h4>#}
+{#                    <p>{{ current_song.lyrics }}</p>#}
+{#                </div>#}
             </div>
         </div>
 
@@ -49,6 +53,7 @@
 
             <div class="ps-1" style="background-color: #272727">
                 <p class="text-white pt-1">{{ current_song.title }}<br><span class="text-muted"><small>@{{ playlist.artist.username }}</small></span></p>
+                <input id="volume" type="range" min="0" max="1" step="0.1" value="0.5" oninput="audio.volume=value" />
             </div>
             <input id="progress" style="width: 100%" type="range" min="0" max="1000" value="0">
 
@@ -68,8 +73,6 @@
                 <button id="play-pause" class="button px-5" style="width: 50px; "><i class="fa-solid fa-circle-play fa-2xl"></i></button>
                 <button id="skip-forward" class="button px-5 ms-5" style="width: 50px; "><i class="fa-solid fa-circle-chevron-right fa-2xl"></i></button>
             </div>
-            <input id="volume" type="range" min="0" max="1" step="0.1" value="0.5" oninput="audio.volume=value" />
-            <p>{{ current_song.lyrics }}</p>
         </div>
 
         <div class="col-3 ms-3 shadow-sm" style="background-color: #272727; border: 3px solid #2b2b2b;">

@@ -90,25 +90,13 @@ font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
 
 
                     <div class="px-3" style="background-color: #202020">
-{#                        <div style="background-color: #202020">#}
-{#                            <a href="/like-post?post_id={{post.playlist.playlistName}}" style="text-decoration: none; color: #fbb03b">#}
-{#                                <div class="p-2 d-flex flex-row">#}
-{#                                    <i class="fa-solid fa-fire fa-2x pt-1" style="color: #fbb03b"></i>#}
-{#                                    {% if post.playlist.no_of_likes == 0 %}#}
-{#                                        <p class="pt-1 px-3">No likes</p>#}
-{#                                    {% elif post.no_of_likes == 1 %}#}
-{#                                        <p>Liked by {{post.playlist.no_of_likes}} person</p>#}
-{#                                    {% else %}#}
-{#                                        <p>Liked by {{post.playlist.no_of_likes}} people</p>#}
-{#                                    {% endif %}#}
-{#                                </div>#}
-{#                            </a>#}
-{#                        </div>#}
                         <p class="links py-3">
                             <a class="fw-bolder" href="/profile/{{post.playlist.artist}}"><strong>@{{post.playlist.artist}}</strong></a>
                             <span class="px-2 text-white">{{post.playlist.caption}}</span>
                         </p>
                     </div>
+                </div>
+                <div class="py-4">
                 </div>
             {% endfor %}
 
@@ -129,7 +117,7 @@ font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
                                 </a>
                                 <div class="d-flex flex-column ps-4" style="color: white">
                                     <span class="text-capitalize fw-bolder py-1">{{suggestion.user}}</span>
-                                    <span class="text-capitalize text-muted text-overflow"><small>{{suggestion.bio}}</small></span>
+                                    <span class="text-muted text-overflow"><small>{{suggestion.bio}}</small></span>
                                 </div>
                             </div>
                             <div class="py-3 view">

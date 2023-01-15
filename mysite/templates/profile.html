@@ -66,18 +66,18 @@
 					{{user_profile.bio}}
 			</div>
 
-            <div class="container postList">
+            <div class="container postList py-5 mt-5">
                 <div class="row">
-                    <div class="col-3"></div>
-                        <div class="col-5">
-                        <div class="">
-                        <h4>Posts:</h4>
-                        <ul class="list-group list-group-horizontal">
+                    <div class="col-2"></div>
+                        <div class="col-5 mt-4">
+                        <div>
+                        <h1 class="text-uppercase fw-bold text-white pb-5">Posts:</h1>
+                        <ul class="list-group list-group-horizontal-sm">
                         {% for playlist in playlist_and_first_song %}
-                            <li class="list-group-item">
+                            <li class="list-group-item active" style="background-color: #2b2b2b; border: 2px solid #fbb03b; border-radius: 10px;">
                                 <a class="strip" href="/play/{{ user_profile.user.username }}/{{ playlist.playlist.playlistName }}/{{playlist.song.id}}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
-                                    <h3>{{ playlist.playlist.playlistName }}</h3>
-                                    <img src="{{playlist.playlist.image.url}}" style="height: 250px; width: 300px;" alt="">
+                                    <h3 class="fw-bolder text-capitalize d-flex align-items-center justify-content-center">{{ playlist.playlist.playlistName }}</h3>
+                                    <img src="{{playlist.playlist.image.url}}" style="height: 350px; width: 350px;" alt="">
                                 </a>
                             </li>
                         {% endfor %}
